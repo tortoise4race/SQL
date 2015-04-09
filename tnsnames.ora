@@ -1,0 +1,18 @@
+db01.dps3_mts=(description=
+                (address=
+                        (protocol=ipc)
+                        (key=dps3))
+                (address=
+                        (protocol=tcp)
+                        (host=db01)
+                        (port=1521))
+                (connect_data=(service_name=dps3.$hostname.$domain)(server=SHARED)))
+db01.dps3=(description=
+                (address=
+                        (protocol=ipc)
+                        (key=dps3))
+                (address=
+                        (protocol=tcp)
+                        (host=db01)
+                        (port=1521))
+                (connect_data=(service_name=dps3.$hostname.$domain)(server=DEDICATED)))

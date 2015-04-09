@@ -1,0 +1,18 @@
+LISTENER =
+  (DESCRIPTION_LIST =
+    (DESCRIPTION =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = db01)(PORT = 1521))
+      (ADDRESS = (PROTOCOL = IPC)(KEY = REGISTER))
+    )
+  )
+sid_list_listener=(sid_list=
+                        (sid_desc=
+                                (global_dbname=$oracle_sid.$hostname.$domain)
+                                (sid_name=$oracle_sid)
+                                (oracle_home=$oracle_home)
+                        )
+                  )
+startup_wait_time_listener=0
+connect_timeout_listener=20
+trace_level_listener=off
+SECURE_REGISTER_LISTENER = (IPC)
