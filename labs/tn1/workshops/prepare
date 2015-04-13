@@ -9,13 +9,14 @@ practice=$1
 scenario=$2
 
 export SPLOC="$ORACLE_HOME/dbs"
-# echo $SPLOC
+echo $SPLOC
+export ORACLE_BASE=/export/home/ora11s/app
 
-export ORADATA="/u01/app/oracle/oradata/$ORACLE_SID"
-# echo $ORADATA
+export ORADATA="$ORACLE_BASE/oradata/$ORACLE_SID"
+echo $ORADATA
 
-export ORABACKUP="/u01/app/oracle/backup/$ORACLE_SID"
-# echo $ORABACKUP
+export ORABACKUP="$ORACLE_BASE/backup/$ORACLE_SID"
+echo $ORABACKUP
 
 case $value in
 
