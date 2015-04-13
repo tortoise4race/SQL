@@ -7,8 +7,13 @@ LISTENER =
   )
 sid_list_listener=(sid_list=
                         (sid_desc=
-                                (global_dbname=$oracle_sid.$hostname.$domain)
-                                (sid_name=$oracle_sid)
+                                (global_dbname=$oracle_sid_1.$hostname.$domain)
+                                (sid_name=$oracle_sid_1)
+                                (oracle_home=$oracle_home)
+                        )
+						(sid_desc=
+                                (global_dbname=$oracle_sid_2.$hostname.$domain)
+                                (sid_name=$oracle_sid_2)
                                 (oracle_home=$oracle_home)
                         )
                   )
