@@ -1,7 +1,7 @@
 
 #
 # setup various workshop scenarios
-#
+# modified by tortoise4race
 
 value=$1$2
 #echo $value
