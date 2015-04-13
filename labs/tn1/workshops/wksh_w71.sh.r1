@@ -1,0 +1,37 @@
+#!/bin/bash 
+users=12
+maxrec=20000
+file=$HOME/workshops/runload
+count=0
+
+touch $file
+
+. /home/oracle/workshops/wkfctrfunc
+
+cpufactor $users
+
+users=$newval
+
+x=1
+y=$users
+
+while [[ -f $file ]]
+do
+while [ $x -le $y ]
+do
+    ./start_71.sh $maxrec &
+
+    x=`expr $x + 1`
+    sleep 1
+done
+
+count=`expr $count + 1`
+if [[ $count > 6 ]]
+then
+  rm $file 
+else
+  sleep 30
+fi
+done
+
+echo "Load is finished"

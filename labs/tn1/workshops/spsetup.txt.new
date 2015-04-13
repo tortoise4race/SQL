@@ -1,0 +1,30 @@
+orcl.__db_cache_size=260046848
+orcl.__java_pool_size=12582912
+orcl.__large_pool_size=4194304
+orcl.__oracle_base='/u01/app/oracle'#ORACLE_BASE set from environment
+orcl.__pga_aggregate_target=209715200
+orcl.__sga_target=637534208
+orcl.__shared_io_pool_size=0
+orcl.__shared_pool_size=356515840
+orcl.__streams_pool_size=0
+*.audit_file_dest='/u01/app/oracle/admin/orcl/adump'
+*.audit_trail='db'
+*.compatible='11.1.0.0.0'
+*.control_files='/u01/app/oracle/oradata/orcl/control01.ctl','/u01/app/
+oracle/oradata/orcl/control02.ctl','/u01/app/oracle/oradata/orcl/control03.ctl'
+*.db_4k_cache_size=0
+*.db_block_size=8192
+*.db_domain=''
+*.db_name='orcl'
+*.db_recovery_file_dest='/u01/app/oracle/flash_recovery_area'
+*.db_recovery_file_dest_size=21474836480
+*.diagnostic_dest='/u01/app/oracle'
+*.dispatchers='(PROTOCOL=TCP) (SERVICE=orclXDB)'
+*.log_archive_dest_10='LOCATION=USE_DB_RECOVERY_FILE_DEST OPTIONAL REOPEN=300'
+*.memory_target=845152256
+*.open_cursors=300
+*.processes=150
+*.remo
+te_login_passwordfile='EXCLUSIVE'
+*.service_names='orcl','orcl.us.oracle.com'
+*.undo_tablespace='UNDOTBS1'

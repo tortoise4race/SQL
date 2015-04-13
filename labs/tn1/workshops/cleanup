@@ -1,0 +1,89 @@
+#!/bin/sh
+#
+# cleanup after scenarios 
+# modified for 11g
+
+value=$1$2
+
+practice=$1
+scenario=$2
+
+case $value in
+
+23)
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	ALTER SYSTEM SET resource_manager_plan=INTERNAL_PLAN SCOPE=MEMORY;
+	EOF
+;;
+31)
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	@cleanup31.sql
+	EOF
+;;
+51)
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	 @cleanup51.sql
+	EOF
+;;
+71)
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	 @cleanup71.sql
+	EOF
+;;
+SP)
+	sqlplus -S /nolog <<-EOF
+	CONNECT / as SYSDBA
+	@cleanup_SP.sql
+	exit
+	EOF
+;;
+BC)
+	./cleanup_BC.sh
+;;
+KC)
+	./keep_cleanup.sh
+;;
+AMM)
+	./keep_cleanup.sh
+	sqlplus -S /nolog <<-EOF
+        CONNECT / as SYSDBA
+        @cleanup_SP.sql
+        exit
+        EOF
+;;
+104) 	# cleanup the optimizer labs
+	sqlplus -S /nolog <<-EOF
+	CONNECT / as sysdba
+	DROP TABLESPACE TESTLM INCLUDING CONTENTS AND DATAFILES;
+	exit;
+	EOF
+;;
+102)
+	sqlplus -S /nolog @cleanup101.sql
+;;
+121)
+	 sqlplus -S /nolog <<-EOF
+	CONNECT / as sysdba
+	@cleanup121.sql
+	EOF
+;;
+132)
+	sqlplus -S /nolog @cleanup132.sql
+;;
+141)
+	sqlplus -S /nolog @cleanup141.sql
+	
+	echo "Start the ORCL database and EM"
+	ORACLE_SID=orcl
+	sqlplus / as sysdba << END
+	startup
+END
+	emctl start dbconsole
+	ORACLE_SID=prod
+;;
+
+esac

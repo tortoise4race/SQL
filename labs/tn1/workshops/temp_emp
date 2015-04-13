@@ -1,0 +1,182 @@
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number,
+hire_date, job_id, salary, commission_pct, manager_id, department_id
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id 
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, first_name, last_name 
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, salary, commission_pct, manager_id, department_id
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, last_name, email, phone_number,
+hire_date, job_id, manager_id, department_id
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number,
+manager_id, department_id
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number,
+hire_date, job_id, manager_id, department_id
+from employees
+Where employee_id =  106;
+
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number,
+hire_date, job_id, salary, commission_pct, manager_id, department_id
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id 
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, first_name, last_name 
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, salary, commission_pct, manager_id, department_id
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, last_name, email, phone_number,
+hire_date, job_id, manager_id, department_id
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number,
+manager_id, department_id
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number,
+hire_date, job_id, manager_id, department_id
+from employees
+Where employee_id =  106;
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number,
+hire_date, job_id, salary, commission_pct, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET J */ employee_id 
+from employees
+where department_id = 50;
+
+select /* SET J */ employee_id, first_name, last_name 
+from employees
+where department_id = 50;
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number
+from employees
+where department_id = 50;
+
+select /* SET J */ employee_id, salary, commission_pct, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET J */ employee_id, last_name, email, phone_number,
+hire_date, job_id, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number,
+manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET J */ employee_id, first_name, last_name, email, phone_number,
+hire_date, job_id, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET K */ employee_id, first_name, last_name, email, phone_number,
+hire_date, job_id, salary, commission_pct, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET K */ employee_id 
+from employees
+where department_id = 50;
+
+select /* SET K */ employee_id, first_name, last_name 
+from employees
+where department_id = 50;
+
+select /* SET K */ employee_id, first_name, last_name, email, phone_number
+from employees
+where department_id = 50;
+
+select /* SET K */ employee_id, salary, commission_pct, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET K */ employee_id, last_name, email, phone_number,
+hire_date, job_id, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET K */ employee_id, first_name, last_name, email, phone_number,
+manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET K */ employee_id, first_name, last_name, email, phone_number,
+hire_date, job_id, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET L */ employee_id, first_name, last_name, email, phone_number,
+hire_date, job_id, salary, commission_pct, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET L */ employee_id 
+from employees
+where department_id = 50;
+
+select /* SET L */ employee_id, first_name, last_name 
+from employees
+where department_id = 50;
+
+select /* SET L */ employee_id, first_name, last_name, email, phone_number
+from employees
+where department_id = 50;
+
+select /* SET L */ employee_id, salary, commission_pct, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET L */ employee_id, last_name, email, phone_number,
+hire_date, job_id, manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET L */ employee_id, first_name, last_name, email, phone_number,
+manager_id, department_id
+from employees
+where department_id = 50;
+
+select /* SET L */ employee_id, first_name, last_name, email, phone_number,
+hire_date, job_id, manager_id, department_id
+from employees
+where department_id = 50;
+

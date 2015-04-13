@@ -1,0 +1,258 @@
+
+#
+# setup various workshop scenarios
+#
+
+value=$1$2
+#echo $value
+practice=$1
+scenario=$2
+
+export SPLOC="$ORACLE_HOME/dbs"
+# echo $SPLOC
+
+export ORADATA="/u01/app/oracle/oradata/$ORACLE_SID"
+# echo $ORADATA
+
+export ORABACKUP="/u01/app/oracle/backup/$ORACLE_SID"
+# echo $ORABACKUP
+
+case $value in
+
+21) 
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	SHUTDOWN IMMEDIATE
+	!cp $HOME/workshops/spfileorcl_wksh.ora $ORACLE_HOME/dbs/spfileorcl.ora
+	STARTUP
+	EXIT
+	EOF
+;;
+
+31)
+ 	sqlplus -S /nolog <<-EOF
+        connect / as sysdba
+	@setup_31.sql
+	exit
+	EOF
+;;
+
+51)
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	@setup_51.sql
+	exit
+	EOF
+;;
+
+71)
+	sqlplus /nolog <<-EOF
+	connect / as sysdba
+	@setup_71.sql
+	exit
+	EOF
+;;
+BC)
+	./setup_BC.sh
+;;
+HARDPARSE) 
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+
+	shutdown immediate
+
+	!cp spfileorcl_HARD.ora $ORACLE_HOME/dbs/spfileprod.ora
+
+	startup
+
+	PROMPT  Finished setup Hard Parse
+
+	exit
+EOF
+;;
+
+SP) 
+	sqlplus -S /nolog <<-EOF
+	set feedback off
+	set echo off
+	connect / as sysdba
+	Shutdown Immediate
+	!cp $HOME/workshops/spfileorcl_SP.ora $ORACLE_HOME/dbs/spfileorcl.ora
+	STARTUP
+
+	@keep_stuff2
+	set feedback on
+	PROMPT  Finished Shared Pool setup
+
+	exit
+EOF
+;;
+
+KC)
+	sqlplus -S /nolog <<-EOF
+	CONNECT / as sysdba
+	@setup_KC.sql
+	exit
+	EOF
+;;
+101)
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	ALTER SYSTEM SET SHARED_POOL_SIZE = 200M SCOPE=MEMORY;
+	EXIT;
+	EOF
+;;
+ASMM)
+	sqlplus -S /nolog <<-EOF
+	CONNECT / as sysdba
+	set feedback off
+	SHUTDOWN IMMEDIATE
+	!cp $HOME/workshops/spfileorcl_ASMM.ora $ORACLE_HOME/dbs/spfileorcl.ora
+	STARTUP 
+	@keep_stuff2.sql
+	exit;
+	EOF
+
+	./keep_pool.sh
+  	echo 'Finished setup ASMM'
+;;
+AMM)
+	sqlplus -S /nolog <<-EOF
+	CONNECT / as sysdba
+	set feedback off
+	SHUTDOWN IMMEDIATE
+	!cp $HOME/workshops/spfileorcl_AMM.ora $ORACLE_HOME/dbs/spfileorcl.ora
+	STARTUP 
+	@keep_stuff2.sql
+	exit;
+	EOF
+
+	./keep_pool.sh
+  	echo 'Finished setup AMM'
+;;
+PGA)
+	sqlplus -S /nolog <<-EOF
+        connect / as sysdba
+	@setupPGA.sql
+	EXIT;
+	EOF
+;;
+
+CAPTURE)
+# restore the starting point database 
+# using flashback to guaranteed savepoint
+# Do this before capture and before replay
+
+	rman <<-EOF
+	connect target / 
+	shutdown immediate;
+	HOST 'cp $HOME/workshops/spfileorcl_setup.ora $ORACLE_HOME/dbs/spfileorcl.ora';
+	
+	startup mount
+	FLASHBACK DATABASE TO RESTORE POINT 'SETUP_01';
+
+	ALTER DATABASE OPEN RESETLOGS;
+
+	SHUTDOWN IMMEDIATE;
+	STARTUP MOUNT;
+	backup database;
+	SHUTDOWN IMMEDIATE;
+	HOST 'cp $HOME/workshops/spfileorcl_capture.ora $ORACLE_HOME/dbs/spfileorcl.ora';
+	STARTUP;	
+	EXIT;
+	EOF
+
+	sqlplus /nolog <<-EOF
+	connect / as sysdba
+	ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+	exit;
+	EOF
+;;
+
+REPLAY)
+# restore the starting point database 
+# using flashback to guaranteed savepoint
+# Do this before capture and before replay
+
+	rman <<-EOF
+	connect target / 
+	shutdown immediate;
+	HOST 'cp $HOME/workshops/spfileorcl_setup.ora $ORACLE_HOME/dbs/spfileorcl.ora';
+	
+	startup mount
+	FLASHBACK DATABASE TO RESTORE POINT 'SETUP_01';
+
+	ALTER DATABASE OPEN RESETLOGS;
+
+	SHUTDOWN IMMEDIATE;
+	STARTUP MOUNT;
+	backup database;
+	SHUTDOWN IMMEDIATE;
+	HOST 'cp $HOME/workshops/spfileorcl_replay.ora $ORACLE_HOME/dbs/spfileorcl.ora';
+	STARTUP;	
+	EXIT;
+	EOF
+
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+	exit;
+	EOF
+;;
+
+FLASHBACK)
+# restore the starting point database 
+# using flashback to guaranteed savepoint
+# Do this before capture and before replay
+
+	rman <<-EOF
+	connect target / 
+	shutdown immediate;
+	HOST 'cp $HOME/workshops/spfileorcl_setup.ora $ORACLE_HOME/dbs/spfileorcl.ora';
+	
+	startup mount
+	FLASHBACK DATABASE TO RESTORE POINT 'SETUP_01';
+
+	ALTER DATABASE OPEN RESETLOGS;
+
+	SHUTDOWN IMMEDIATE;
+	STARTUP MOUNT;
+	backup database;
+	SHUTDOWN IMMEDIATE;
+	HOST 'cp $HOME/workshops/spfileorcl_wksh.ora $ORACLE_HOME/dbs/spfileorcl.ora';
+	STARTUP;	
+	EXIT;
+	EOF
+
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+	exit;
+	EOF
+	
+;;
+
+RESTORE)
+# restore the original database 
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	shutdown immediate
+	EOF
+
+	cp -rp $ORABACKUP/* $ORADATA/
+
+	sqlplus -S /nolog <<-EOF
+	connect / as sysdba
+	startup
+	EOF
+;;
+
+DUMMY)
+	echo "No operation"
+	;;
+*)
+	echo "A parameter is required to setup a practice"
+	echo "Example: ./prepare 3 1 to setup practice 3-1"
+	;;
+esac
+#echo "End of case"

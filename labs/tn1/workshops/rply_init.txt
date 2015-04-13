@@ -1,0 +1,35 @@
+orcl.__oracle_base='/u01/app/oracle'#ORACLE_BASE set from environment
+*._shared_io_pool_size=0
+*.audit_file_dest='/u01/app/oracle/admin/orcl/adump'
+*.audit_trail='db'
+*.compatible='11.1.0.0.0'
+*.control_files='/u01/app/oracle/oradata/orcl/control01.ctl','/u01/app/oracle/oradata/orcl/control02.ctl','/u01/app/oracle/oradata/orcl/control03.ctl'
+*.cursor_sharing='EXACT'
+*.db_block_size=8192
+*.db_domain=''
+*.db_name='orcl'
+*.db_recovery_file_dest='/u01/app/oracle/flash_recovery_area'
+*.db
+_recovery_file_dest_size=32212254720
+*.diagnostic_dest='/u01/app/oracle'
+*.dispatchers='(PROTOCOL=TCP) (SERVICE=orclXDB)'
+*.filesystemio_options='ASYNCH'
+*.java_pool_size=0
+*.large_pool_size=0
+*.log_archive_dest_10='LOCATION=USE_DB_RECOVERY_FILE_DEST OPTIONAL REOPEN=300'
+*.log_buffer=27262976
+*.memory_target=677380096
+*.open_cursors=300
+*.optimizer_features_enable='11.1.0.6'
+*.optimizer_use_sql_plan_baselines=FALSE
+*.pga_aggregate_target=0
+*.processes=150
+*.remote_login_passwordfile=
+'EXCLUSIVE'
+orcl.resource_manager_plan='FORCE:'
+*.resource_manager_plan='INTERNAL_PLAN'
+*.service_names='orcl.us.oracle.com'
+*.sga_target=0
+*.shared_pool_size=0
+*.streams_pool_size=0
+*.undo_tablespace='UNDOTBS1'

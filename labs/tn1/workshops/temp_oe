@@ -1,0 +1,136 @@
+
+select /* G */ product_name, category_id, supplier_id from product_information
+where product_id between 2000 and 2100;
+
+SELECT /* G */ product_name, category_id, supplier_id from product_information
+where product_id between 2200 and 2300;
+
+select /* G */ product_name, category_id, supplier_id 
+from product_information
+where product_id between 2500 and 2600;
+
+select /* G */ product_name, category_id, supplier_id from product_information
+where product_id between 2000 and 2100;
+
+SELECT /* G */ product_id, category_id, supplier_id from product_information
+where product_id between 2200 and 2300;
+
+select /* G */ product_id, category_id, supplier_id 
+from product_information
+where product_id between 2500 and 2600;
+
+select /* G */ warehouse_id, warehouse_name from warehouses 
+where warehouse_id between 2 and 4;
+
+select /* G */ warehouse_spec, warehouse_name from warehouses 
+where warehouse_id between 2 and 4;
+
+select /* G */ warehouse_id, location_id from warehouses 
+where warehouse_id between 2 and 4;
+
+select /* G */ * from warehouses 
+where warehouse_id between 2 and 4;
+
+select /* G */ * from inventories 
+where product_id between 2400 and 3000;
+
+select /* G */ warehouse _id from inventories 
+where product_id between 2400 and 3000;
+
+select /* G */ warehouse _id from inventories 
+where product_id between 2400 and 3000
+and Quantity_on_hand > 5;
+
+select /* G */ warehouse _id, product_id, quantity_on_hand from inventories 
+where product_id between 2400 and 3000
+and Quantity_on_hand > 5;
+
+select /* G */ * from product_descriptions 
+where product_id between 2400 and 2450;
+
+select /* G */ product_id, language_id from product_descriptions 
+where product_id between 2400 and 2450;
+
+SELECT /* G */ * from product_descriptions 
+where product_id between 2400 and 2450;
+
+SELECT /* G */ product_id, language_id from product_descriptions 
+where product_id between 2400 and 2450;
+
+select /* G */ * from promotions where promo_id = 1;
+
+select /* G */ promo_id, promo_name from promotions where promo_id = 2;
+
+SELECT /* G */ * from promotions;
+
+select /* G */ promo_id, promo_name from promotions;
+
+SELECT /* G */ promo_id, promo_name from promotions;
+select /* G */ product_name, category_id, supplier_id from product_information
+where product_id between 2000 and 2100;
+
+SELECT /* G */ product_name, category_id, supplier_id from product_information
+where product_id between 2200 and 2300;
+
+select /* G */ product_name, category_id, supplier_id 
+from product_information
+where product_id between 2500 and 2600;
+
+select /* H */ product_name, category_id, supplier_id from product_information
+where product_id between 2000 and 2100;
+
+SELECT /* H **/ product_id, category_id, supplier_id from product_information
+where product_id between 2200 and 2300;
+
+select /* H */ product_id, category_id, supplier_id 
+from product_information
+where product_id between 2500 and 2600;
+
+select /* H */ warehouse_id, warehouse_name from warehouses 
+where warehouse_id between 2 and 4;
+
+select /* H */ warehouse_spec, warehouse_name from warehouses 
+where warehouse_id between 2 and 4;
+
+select /* H */ warehouse_id, location_id from warehouses 
+where warehouse_id between 2 and 4;
+
+select /* H */ * from warehouses 
+where warehouse_id between 2 and 4;
+
+select /* H */ * from inventories 
+where product_id between 2400 and 3000;
+
+select /* H */ warehouse _id from inventories 
+where product_id between 2400 and 3000;
+
+select /* H */ warehouse _id from inventories 
+where product_id between 2400 and 3000
+and Quantity_on_hand > 5;
+
+select /* H */ warehouse _id, product_id, quantity_on_hand from inventories 
+where product_id between 2400 and 3000
+and Quantity_on_hand > 5;
+
+select /* H */ * from product_descriptions 
+where product_id between 2400 and 2450;
+
+select /* H */ product_id, language_id from product_descriptions 
+where product_id between 2400 and 2450;
+
+SELECT /* H **/ * from product_descriptions 
+where product_id between 2400 and 2450;
+
+SELECT /* H **/ product_id, language_id from product_descriptions 
+where product_id between 2400 and 2450;
+
+select /* H */ * from promotions where promo_id = 1;
+
+select /* H */ promo_id, promo_name from promotions where promo_id = 2;
+
+SELECT /* H **/ * from promotions;
+
+select /* H */ promo_id, promo_name from promotions;
+
+SELECT /* H **/ promo_id, promo_name from promotions;
+
