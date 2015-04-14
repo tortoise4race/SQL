@@ -17,7 +17,7 @@
 
 cd $HOME/setup
 
-file='$HOME/setup/base_runload'
+file=$HOME/setup/base_runload
 
 ## If the base_runload exists and the setup_baseline is running
 ## do not start another instance
@@ -39,7 +39,7 @@ fi
 
 ## If the baseline_ready file exists DO NOT RUN
 
-if [[ -f '$HOME/setup/baseline_ready' ]]
+if [[ -f $HOME/setup/baseline_ready ]]
 then
   echo 'baseline is ready'
   exit
