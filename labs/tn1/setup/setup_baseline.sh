@@ -44,7 +44,7 @@ then
   echo 'baseline is ready'
   exit
 else [[ -f $file ]]
-#  echo 'Creating workload for baseline'
+  echo 'Creating workload for baseline'
   touch $file
 fi
 
@@ -86,12 +86,12 @@ while [[ -f $file ]]
 do
 
 hour=`date +%l`
-#echo 'hour is:' $hour
+echo 'hour is:' $hour
 
 if (( $hour%2 == 0 )) 
 then
-#date  
-#echo 'txn/s = 4'
+date  
+echo 'txn/s = 4'
 
 sqlplus -S /nolog <<-EOF
 	connect jfv/jfv
@@ -100,8 +100,8 @@ sqlplus -S /nolog <<-EOF
 	exit
 	EOF
 else
-#date
-#echo 'txn/s = 8'
+date
+echo 'txn/s = 8'
 sqlplus -S /nolog <<-EOF
         connect jfv/jfv
 	set feedback off
@@ -112,7 +112,7 @@ fi
 
 sleep 1
 
-#echo 'testing snapshots'
+echo 'testing snapshots'
 # if there are 100 snapshots stop
 # rename the runload file to baseline_ready
 sqlplus -S /nolog <<-EOF
