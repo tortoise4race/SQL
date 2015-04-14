@@ -73,7 +73,14 @@ sqlplus -S /nolog <<-EOF
 
 	connect jfv/jfv
 	set feedback off
-	drop table work purge;
+	declare
+	  c int;
+	begin
+	  select count (*) into c from user_tables where table_name = upper('work');
+	  if c = 1 then
+	      execute immedate 'drop table work purge';
+	  end if;
+	end;
 
 	create table work(c number);
 
