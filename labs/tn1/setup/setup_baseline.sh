@@ -78,9 +78,9 @@ sqlplus -S /nolog <<-EOF
 	begin
 	  select count (*) into c from user_tables where table_name = upper('work');
 	  if c = 1 then
-	      execute immedate 'drop table work purge';
+	      execute immediate 'drop table work purge';
 	  end if;
-	end;
+# 	end;
 
 	create table work(c number);
 
