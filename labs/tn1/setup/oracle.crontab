@@ -1,10 +1,12 @@
 # crontab for oracle user
 ORACLE_SID=orcl
-ORACLE_HOME=/u01/app/oracle/product/11.1.0/db_1
-ORACLE_BASE=/u01/app/oracle/
+MY_ORACLE_BASE=/export/home/ora11s/app
+ORACLE_BASE=$MY_ORACLE_BASE
+ORACLE_HOME=$ORACLE_BASE/product/11r2/prod_home
 
-PATH=/u01/app/oracle/product/11.1.0/db_1/bin:/bin:/home/oracle/bin:/usr/bin:/usr/local/bin
+
+PATH=$ORACLE_HOME/bin:/bin:/home/oracle/bin:/usr/bin:/usr/local/bin
 # run a setup_baseline script check every 10 minutes
 # */1 * * * * touch /home/oracle/workshops/cron.touch
 #*/5 * * * * /home/oracle/labs/setup_baseline.sh >> /home/oracle/workshops/base.log 
-*/10 * * * * /home/oracle/setup/setup_baseline.sh > /dev/null 2>&1 
+*/10 * * * * $HOME/setup/setup_baseline.sh > /dev/null 2>&1 

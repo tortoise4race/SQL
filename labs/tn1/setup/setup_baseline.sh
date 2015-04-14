@@ -17,7 +17,7 @@
 
 cd $HOME/setup
 
-file='/home/oracle/setup/base_runload'
+file='$HOME/setup/base_runload'
 
 ## If the base_runload exists and the setup_baseline is running
 ## do not start another instance
@@ -39,7 +39,7 @@ fi
 
 ## If the baseline_ready file exists DO NOT RUN
 
-if [[ -f '/home/oracle/setup/baseline_ready' ]]
+if [[ -f '$HOME/setup/baseline_ready' ]]
 then
   echo 'baseline is ready'
   exit
@@ -56,7 +56,7 @@ sqlplus -S /nolog <<-EOF
 	set feedback off
 	set echo off
 
-	CREATE OR REPLACE DIRECTORY SETUP AS '/home/oracle/setup';
+	CREATE OR REPLACE DIRECTORY SETUP AS '$HOME/setup';
 
 	begin
 	  dbms_workload_repository.modify_snapshot_settings(retention=>17280, interval => 15);
