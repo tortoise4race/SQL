@@ -22,7 +22,7 @@ file=$HOME/workshops/runload
 touch $file
 
 # cpufactor $1
-newval=400
+newval=40
 while (( $sessions < $newval))
 do
 
