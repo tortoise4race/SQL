@@ -18,7 +18,7 @@
 #. ./wkfctrfunc
 
 sessions=0
-file='/home/oracle/workshops/runload'
+file=$HOME/workshops/runload
 touch $file
 
 # cpufactor $1
