@@ -139,8 +139,7 @@ do
 	    END;
 	    /
 
-	    EXIT;
+	    exit
 	    EOF
-
 done
 exit
