@@ -15,14 +15,14 @@
 # file is removed.
 # NOTE the runload is also coded in the wkld_sess.sh script
 
-. ./wkfctrfunc
+#. ./wkfctrfunc
 
 sessions=0
 file='/home/oracle/workshops/runload'
 touch $file
 
 cpufactor $1
-
+newval=400
 while (( $sessions < $newval))
 do
 
