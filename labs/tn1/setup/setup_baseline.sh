@@ -138,8 +138,7 @@ do
 		    END IF;
 	    END;
 	    /
-
-	    exit
-	    EOF
+exit
+EOF
 done
 exit
