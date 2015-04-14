@@ -81,6 +81,7 @@ sqlplus -S /nolog <<-EOF
 	      execute immediate 'drop table work purge';
 	  end if;
 	end;
+	/
 
 	create table work(c number);
 
