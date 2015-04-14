@@ -21,7 +21,7 @@ sessions=0
 file='/home/oracle/workshops/runload'
 touch $file
 
-cpufactor $1
+# cpufactor $1
 newval=400
 while (( $sessions < $newval))
 do
