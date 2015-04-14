@@ -16,6 +16,12 @@
 # example for 40 tps: SQL> @txnpersec 40
 
 cd $HOME/setup
+# Solaris cannot handle environment variable in crontab directly therefore those are
+# included in script. The interval must be long format
+# */10 will not run
+
+source my_oracle.crontab
+# End of Solaris crontab
 
 file=$HOME/setup/base_runload
 
