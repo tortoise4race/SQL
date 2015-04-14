@@ -93,54 +93,54 @@ sqlplus -S /nolog <<-EOF
 while [[ -f $file ]]
 do
 
-hour=`date +%l`
-echo 'hour is:' $hour
+    hour=`date +%l`
+    echo 'hour is:' $hour
 
-if (( $hour%2 == 0 )) 
-then
-date  
-echo 'txn/s = 4'
+    if (( $hour%2 == 0 )) 
+    then
+	date  
+	echo 'txn/s = 4'
 
-sqlplus -S /nolog <<-EOF
-	connect jfv/jfv
-	set feedback off
-	@txnpersec 4 
-	exit
-	EOF
-else
-date
-echo 'txn/s = 8'
-sqlplus -S /nolog <<-EOF
-        connect jfv/jfv
-	set feedback off
-        @txnpersec 8
-        exit
-	EOF
-fi
+	sqlplus -S /nolog <<-EOF
+		connect jfv/jfv
+		set feedback off
+		@txnpersec 4 
+		exit
+		EOF
+    else
+	date
+	echo 'txn/s = 8'
+	sqlplus -S /nolog <<-EOF
+		connect jfv/jfv
+		set feedback off
+		@txnpersec 8
+		exit
+		EOF
+	fi
 
-sleep 1
+    sleep 1
 
-echo 'testing snapshots'
-# if there are 100 snapshots stop
-# rename the runload file to baseline_ready
-sqlplus -S /nolog <<-EOF
-	connect / as sysdba
-        set feedback off	
-	DECLARE
-		num_snaps	NUMBER;
-	BEGIN
-		select count(*) INTO num_snaps FROM DBA_HIST_SNAPSHOT;
+    echo 'testing snapshots'
+    # if there are 100 snapshots stop
+    # rename the runload file to baseline_ready
+    sqlplus -S /nolog <<-EOF
+	    connect / as sysdba
+	    set feedback off	
+	    DECLARE
+		    num_snaps	NUMBER;
+	    BEGIN
+		    select count(*) INTO num_snaps FROM DBA_HIST_SNAPSHOT;
 
-		IF ( num_snaps > 100 ) THEN
+		    IF ( num_snaps > 100 ) THEN
 
-		UTL_FILE.FRENAME('SETUP', 'base_runload', 'SETUP', 'baseline_ready');
-		dbms_workload_repository.modify_snapshot_settings(retention=>17280, interval => 60);
-		END IF;
-	END;
-	/
+		    UTL_FILE.FRENAME('SETUP', 'base_runload', 'SETUP', 'baseline_ready');
+		    dbms_workload_repository.modify_snapshot_settings(retention=>17280, interval => 60);
+		    END IF;
+	    END;
+	    /
 
-	EXIT;
-	EOF
+	    EXIT;
+	    EOF
 
 done
 exit
