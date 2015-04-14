@@ -6,7 +6,7 @@
 #
 #set -x
 
-file='/home/oracle/workshops/runload'
+file=$HOME/workshops/runload
 delay=$2
 
 param1=$1
