@@ -15,7 +15,7 @@ do
     ./load_31.sh $maxrec &
 
     x=`expr $x + 1`
-    sleep .15
+    gsleep .15
 done
 
 sleep 120
