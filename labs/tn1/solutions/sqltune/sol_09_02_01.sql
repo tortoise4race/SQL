@@ -1,0 +1,2 @@
+connect sh/sh
+ALTER SESSION SET TRACEFILE_IDENTIFIER='badsql';
