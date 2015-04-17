@@ -7,7 +7,7 @@ maxrec=20000
 #cpufactor $users
 
 #users=$newval
-users=40
+users=100
 x=1
 y=$users
 while [ $x -le $y ]
