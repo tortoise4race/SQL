@@ -7,10 +7,10 @@ value=$1$2
 #echo $value
 practice=$1
 scenario=$2
-
+MY_ORACLE_BASE=/export/home/ora11s/app
 export SPLOC="$ORACLE_HOME/dbs"
 echo $SPLOC
-export ORACLE_BASE=/export/home/ora11s/app
+export ORACLE_BASE=$MY_ORACLE_BASE
 
 export ORADATA="$ORACLE_BASE/oradata/$ORACLE_SID"
 echo $ORADATA
