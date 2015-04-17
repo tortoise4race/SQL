@@ -2,12 +2,12 @@
 users=12
 maxrec=20000
 
-. /home/oracle/workshops/wkfctrfunc
+#. $HOME/workshops/wkfctrfunc
 
-cpufactor $users
+#cpufactor $users
 
-users=$newval
-
+#users=$newval
+#users=40
 x=1
 y=$users
 while [ $x -le $y ]
