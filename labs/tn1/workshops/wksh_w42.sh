@@ -21,7 +21,7 @@ touch $file
 #maxses=2
 #cpufactor $maxses
 #maxses=$newval
-maxses=40
+maxses=10
 sqlplus -S /nolog <<EOF
 connect / as sysdba
 exec DBMS_WORKLOAD_REPOSITORY.CREATE_SNAPSHOT();

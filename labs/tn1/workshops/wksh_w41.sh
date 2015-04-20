@@ -21,7 +21,7 @@ maxses=2
 # ldfactor $maxses
 
 # maxses=$newval
-maxses=40
+maxses=10
 
 #newdir
 
