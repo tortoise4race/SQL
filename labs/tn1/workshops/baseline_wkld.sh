@@ -6,7 +6,7 @@
 
 cd $HOME/labs
 
-file='/home/oracle/workshops/runload'
+file=$HOME/workshops/runload
 
 touch $file
 
