@@ -11,7 +11,7 @@ touch $file
 # cpufactor $users
 
 # users=$newval
-users=30
+users=100
 x=1
 y=$users
 
