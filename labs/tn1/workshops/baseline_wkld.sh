@@ -43,7 +43,7 @@ do
 sqlplus -S /nolog <<-EOF
 	connect jfv/jfv
 	set feedback off
-	@../labs/txnpersec 40 
+	@txnpersec 40 
 	exit
 	EOF
 sleep 1
