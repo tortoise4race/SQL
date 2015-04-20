@@ -1,11 +1,11 @@
 set echo on
 
-ALTER SESSION SET DB_CREATE_FILE_DEST='/export/home/ora11s/app/oradata/ORCL/datafile/'
+#ALTER SESSION SET DB_CREATE_FILE_DEST='/export/home/ora11s/app/oradata/ORCL/datafile/'
 
 drop tablespace tbsspc including contents and datafiles;
 
 CREATE SMALLFILE TABLESPACE "TBSSPC"
-DATAFILE 'tbsspc1.dbf' SIZE 50M
+DATAFILE '/export/home/ora11s/app/oradata/ORCL/datafile/tbsspc1.dbf' SIZE 50M
 AUTOEXTEND ON NEXT 10M MAXSIZE 200M
 LOGGING
 EXTENT MANAGEMENT LOCAL
