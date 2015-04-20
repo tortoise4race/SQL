@@ -9,28 +9,31 @@
 
 ./snapshots.sh
 
-slashdir=/
+#slashdir=/
 sessions=0
-file='/home/oracle/workshops/runload'
+file=$HOME/workshops/runload
 touch $file
 
 maxses=2
 
-. /home/oracle/workshops/wkfctrfunc
+# . /home/oracle/workshops/wkfctrfunc
 
-ldfactor $maxses
+# ldfactor $maxses
 
-maxses=$newval
+# maxses=$newval
+maxses=40
 
-newdir
+#newdir
 
-ddrecords=4000
+#ddrecords=4000
 
-ldfactor $ddrecords
+#ldfactor $ddrecords
 
-ddrecords=$newval
+#ddrecords=$newval
 
-sudo dd if=$slashdir of=/dev/null conv=ebcdic bs=409600 count=$ddrecords  2>/dev/null  &
+#call from terminal shell
+#for i in {1..10} ; do dd if=/dev/zero of=test.dd  bs=409600 count=10000 &&  sync ; md5sum test.dd ; rm test.dd ; done
+#sudo dd if=$slashdir of=/dev/null conv=ebcdic bs=409600 count=$ddrecords  2>/dev/null  &
 
 while (( $sessions < $maxses))
 do

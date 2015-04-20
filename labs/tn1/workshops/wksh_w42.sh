@@ -13,15 +13,15 @@
 # NOTE the runload file is also coded in the wkld_sess.sh script
 
 sessions=0
-file='/home/oracle/workshops/runload'
+file=$HOME/workshops/runload
 touch $file
 
-. ./wkfctrfunc
+#. ./wkfctrfunc
 
-maxses=2
-cpufactor $maxses
-maxses=$newval
-
+#maxses=2
+#cpufactor $maxses
+#maxses=$newval
+maxses=40
 sqlplus -S /nolog <<EOF
 connect / as sysdba
 exec DBMS_WORKLOAD_REPOSITORY.CREATE_SNAPSHOT();
