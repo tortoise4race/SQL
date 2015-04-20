@@ -1,6 +1,6 @@
 set echo on
 
-#ALTER SESSION SET DB_CREATE_FILE_DEST='/export/home/ora11s/app/oradata/ORCL/datafile/'
+--ALTER SESSION SET DB_CREATE_FILE_DEST='/export/home/ora11s/app/oradata/ORCL/datafile/'
 
 drop tablespace tbsspc including contents and datafiles;
 
