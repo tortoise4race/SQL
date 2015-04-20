@@ -1,0 +1,11 @@
+
+
+SERV1 =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = edrsr14p1.us.oracle.com)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = SERV1.us.oracle.com)
+    )
+  )
+
