@@ -1,11 +1,11 @@
 #!/bin/bash
-. /home/oracle/workshops/wkfctrfunc
+# . /home/oracle/workshops/wkfctrfunc
 
 #set -x
 users=4
 
-cpucount
-
+# cpucount
+cpunum=8
 if [ $cpunum -gt 1 ]
 then
   addusers=6
@@ -22,14 +22,14 @@ else
  addrec=10000
 fi
 
-cpufactor $addusers
-addusers=$newval
-
+# cpufactor $addusers
+# addusers=$newval
+addusers=40
 let "users = users + addusers"
 
-cpufactor $addrec
-addrec=$newval
-
+# cpufactor $addrec
+# addrec=$newval
+addrec=100
 let "maxrec = maxrec + addrec"
 x=1
 y=$users
