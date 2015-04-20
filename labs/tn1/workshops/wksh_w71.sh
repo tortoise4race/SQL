@@ -6,12 +6,12 @@ count=0
 
 touch $file
 
-. /home/oracle/workshops/wkfctrfunc
+# . $HOME/workshops/wkfctrfunc
 
-cpufactor $users
+# cpufactor $users
 
-users=$newval
-
+# users=$newval
+users=30
 x=1
 y=$users
 
