@@ -13,14 +13,16 @@
 # NOTE the runload file is also coded in the called *.sh scripts
 
 sessions=0
-file='/home/oracle/workshops/runload'
+file=$HOME/workshops/runload
 touch $file
 
-. ./wkfctrfunc
+#. ./wkfctrfunc
 
-maxses=2
-cpufactor $maxses
-maxses=$newval
+#maxses=2
+#cpufactor $maxses
+#maxses=$newval
+
+maxses=30
 
 while (( $sessions < $maxses))
 do
