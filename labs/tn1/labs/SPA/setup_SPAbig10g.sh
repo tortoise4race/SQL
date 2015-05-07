@@ -1,9 +1,9 @@
 #!/bin/bash
 
-rm /u01/app/oracle/admin/orcl/dpdump/apps.dmp
-rm /u01/app/oracle/admin/orcl/dpdump/appsandstage.dmp
+rm $ORACLE_BASE/admin/orcl/dpdump/apps.dmp
+rm $ORACLE_BASE/admin/orcl/dpdump/appsandstage.dmp
 
-cp $HOME/labs/SPA/apps.dmp /u01/app/oracle/admin/orcl/dpdump/apps.dmp
+cp $HOME/labs/SPA/apps.dmp $ORACLE_BASE/admin/orcl/dpdump/apps.dmp
 
 sqlplus /nolog <<FIN!
 connect / as sysdba 
