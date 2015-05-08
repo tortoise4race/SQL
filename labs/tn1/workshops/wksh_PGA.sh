@@ -1,12 +1,12 @@
 #!/bin/bash
 
 sessions=0
-file='/home/oracle/workshops/runload'
+file='$HOME/workshops/runload'
 touch $file
 
 wait_time=10
 
-. /home/oracle/workshops/wkfctrfunc
+. $HOME/workshops/wkfctrfunc
 
 invcpufactor $wait_time
 
