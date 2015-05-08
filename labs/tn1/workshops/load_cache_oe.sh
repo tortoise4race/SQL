@@ -6,7 +6,7 @@
 #
 #set -x
 
-file='/home/oracle/workshops/runload'
+file=$HOME/workshops/runload
 delay=$1
 
 while [[ -f $file ]]

@@ -85,15 +85,15 @@ done
 #end comment
 my_comment
 
-./load_cache_sh.sh 30 &
+./load_cache_sh.sh 8 &
 
 sleep 2
 
-./load_cache_oe.sh 50 &
+./load_cache_oe.sh 3 &
 
 sleep 2
 
-./load_cache_hr.sh 50 &
+./load_cache_hr.sh 5 &
 
 sleep 2
 
