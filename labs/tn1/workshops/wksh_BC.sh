@@ -4,16 +4,18 @@
 
 maxses=$1
 sessions=0
-file='/home/oracle/workshops/runload'
+file=$HOME/workshops/runload
 touch $file
 
+: <<'my_comment'
+# begin comment
 updrec=20
 insrec=6
 delrec=6
 
 #get machine specs
 
-. /home/oracle/workshops/wkfctrfunc
+. $HOME/workshops/wkfctrfunc
 
 #calcuate the load factor from machine specs
 
@@ -53,7 +55,6 @@ oedelay=$newval
 invcpufactor $shdelay
 shdelay=$newval
 
-
 ./load_cache_sh.sh $shdelay &
 
 sleep 2
@@ -76,6 +77,36 @@ sleep 2
 sleep 2
                                                                                 
 ./delete_orders.sh $delrec $delay &
+
+let sessions+=1
+
+done
+
+#end comment
+my_comment
+
+./load_cache_sh.sh 15 &
+
+sleep 2
+
+./load_cache_oe.sh 20 &
+
+sleep 2
+
+./load_cache_hr.sh 30 &
+
+sleep 2
+
+while (( $sessions < $maxses))
+do
+
+./insert_orders.sh 20 3 &
+sleep 2
+                                                                                
+./update_orders.sh 10 3 &
+sleep 2
+                                                                                
+./delete_orders.sh 15 3 &
 
 let sessions+=1
 
