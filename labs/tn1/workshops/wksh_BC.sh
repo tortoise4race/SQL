@@ -85,7 +85,7 @@ done
 #end comment
 my_comment
 
-./load_cache_sh.sh 8 &
+./load_cache_sh.sh 2 &
 
 sleep 2
 
@@ -93,20 +93,20 @@ sleep 2
 
 sleep 2
 
-./load_cache_hr.sh 5 &
+./load_cache_hr.sh 4 &
 
 sleep 2
 
 while (( $sessions < $maxses))
 do
 
-./insert_orders.sh 40 10 &
+./insert_orders.sh 100 2 &
 sleep 2
                                                                                 
-./update_orders.sh 50 5 &
+./update_orders.sh 200 3 &
 sleep 2
                                                                                 
-./delete_orders.sh 45 30 &
+./delete_orders.sh 45 4 &
 
 let sessions+=1
 
